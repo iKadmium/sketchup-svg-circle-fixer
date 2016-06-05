@@ -1,0 +1,43 @@
+﻿<Window x:Class="SVGCircleFinder.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SVGCircleFinder"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="437.35" Width="689.031">
+    <Grid Drop="Grid_Drop" DragEnter="Grid_DragEnter" DragOver="Grid_DragOver" AllowDrop="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TabControl x:Name="tabControl" MouseWheel="Canvas_MouseWheel" Grid.Column="0" MouseMove="tabControl_MouseMove">
+            <TabItem Header="Original" Name="tabOriginal">
+                <Canvas x:Name="originalCanvas" Margin="10">
+                    <Canvas.RenderTransform>
+                        <ScaleTransform x:Name="originalCanvasScale"/>
+                    </Canvas.RenderTransform>
+                </Canvas>
+            </TabItem>
+            <TabItem Header="Fixed" Name="tabFixed">
+                <Canvas x:Name="fixedCanvas" Margin="10">
+                    <Canvas.RenderTransform>
+                        <ScaleTransform x:Name="fixedCanvasScale"/>
+                    </Canvas.RenderTransform>
+                </Canvas>
+            </TabItem>
+        </TabControl>
+        <Label x:Name="infoLabel" Content="Label" Grid.Column="1"/>
+        <GridSplitter x:Name="gridSplitter" Grid.Column="1" HorizontalAlignment="Left" Height="100" Width="5"/>
+        <StatusBar Grid.Row="1" Grid.ColumnSpan="2" >
+            <Label Name="statusLabel">0,0</Label>
+        </StatusBar>
+    </Grid>
+    
+
+
+</Window>
